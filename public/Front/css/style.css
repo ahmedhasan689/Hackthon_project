@@ -1,0 +1,214 @@
+body {
+    font-family: Sakkal Majalla;
+    /* font-family: cairo; */
+    direction: rtl;
+    left: 0;
+    top: 0;
+}
+
+.navbar {
+    /* background-color: #D60D0D; */
+    padding: 15px 0px;
+    box-shadow: 2px 1px 10px #24c2a044;
+}
+
+.navbar .navbar-brand img {
+    height: 40px;
+}
+
+@media(max-width:768px) {
+    .navbar .navbar-brand img {
+        height: 30px;
+    }
+}
+
+.navbar .cont {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #000;
+    font-size: larger;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #d60d0d;
+}
+
+.navbar .navbar-nav .nav-item {
+    padding: 0 10px;
+}
+
+.navbar form button {
+    border-radius: 15px;
+    border: none;
+    color: #ffffff;
+    background-image: linear-gradient(to right, #24c2a0, #15eaa0);
+    font-weight: bold;
+    font-size: large;
+    margin: 0 5px;
+    transition: ease .7s;
+}
+
+.navbar form .log a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar form button a:hover {
+    color: #fff;
+}
+
+.navbar form button:hover {
+    color: #fff;
+}
+
+.navbar form button:focus {
+    box-shadow: none;
+}
+
+
+/* login */
+
+.sign,
+.login {
+    height: 100vh;
+}
+
+.sign .row,
+.login .row {
+    height: 100%;
+}
+
+.sign .rightLogin,
+.login .rightLogin {
+    background-image: linear-gradient(to right, #24c2a0, #15eaa0);
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.sign .rightLogin .cont,
+.login .rightLogin .cont {
+    margin-top: 250px;
+}
+
+@media(max-width:992px) {
+    .sign .rightLogin,
+    .login .rightLogin {
+        height: 50%;
+    }
+    .sign .rightLogin .cont,
+    .login .rightLogin .cont {
+        margin-top: 100px;
+    }
+}
+
+.sign .rightLogin h2,
+.login .rightLogin h2 {
+    color: #fff;
+    font-weight: bolder;
+}
+
+.sign .rightLogin p,
+.login .rightLogin p {
+    color: #fff;
+    font-size: 30px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.sign .rightLogin button,
+.login .rightLogin button {
+    border: solid 1px #fff;
+    padding: 5px 50px;
+    border-radius: 100px;
+    margin-top: 10%;
+}
+
+@media(max-width:992px) {
+    .sign .rightLogin button,
+    .login .rightLogin button {
+        margin-top: 5%;
+    }
+}
+
+.sign .rightLogin button a,
+.login .rightLogin button a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.sign form {
+    width: 60%;
+    margin: 100px auto 0 auto;
+}
+
+@media(max-width:992px) {
+    .login form,
+    .sign form {
+        width: 90%;
+    }
+}
+
+.login form {
+    width: 60%;
+    margin: 250px auto 0 auto;
+}
+
+.sign form h2,
+.login form h2 {
+    color: #24c2a0;
+    padding-bottom: 20px;
+}
+
+.sign form input,
+.login form input {
+    background-color: rgba(97, 97, 97, 0.192);
+    border: none;
+    padding: 10px 15px;
+    font-size: large;
+}
+
+.sign form select {
+    background-color: rgba(97, 97, 97, 0.192);
+}
+
+.sign form .s1 {
+    margin-left: 5px;
+}
+
+.sign form .s2 {
+    margin-right: 5px;
+}
+
+.sign form input:focus,
+.login form input:focus {
+    box-shadow: none;
+    border: solid 1px #24c2a0;
+}
+
+.sign form a,
+.login form a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    border-bottom: solid 1px #24c2a0;
+}
+
+.sign form button,
+.login form button {
+    background-color: #24c2a0;
+    border: none;
+    margin-top: 20px;
+}
+
+.sign form button a,
+.login form button a {
+    color: #fff;
+    text-decoration: none;
+}

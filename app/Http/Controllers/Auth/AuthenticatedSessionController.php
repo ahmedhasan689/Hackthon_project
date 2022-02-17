@@ -28,11 +28,36 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
+        // dd($request);
+        if ($request->type == 'customer') {
+            $guardName = 'customer';
+        } elseif ($request->type == 'delivery') {
+            $guardName = 'delivery';
+        } else {
+            $guardName = 'web';
+        }
 
-        $request->session()->regenerate();
+        if (Auth::guard($guardName)->attempt([
+            'phone_number' => $request->phone_number,
+            'password' => $request->password,
+        ])) {
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            if ($request->type == 'customer') {
+
+                $request->authenticate();
+                $request->session()->regenerate();
+                return redirect()->intended(RouteServiceProvider::HOME);
+
+            } elseif ($request->type == 'delivery') {
+
+                return redirect()->intended(RouteServiceProvider::HOME);
+
+            } else {
+
+                return redirect()->intended(RouteServiceProvider::HOME);
+                
+            }
+        }
     }
 
     /**
@@ -41,14 +66,19 @@ class AuthenticatedSessionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Request $request)
+    public function destroy(Request $request, $type)
     {
-        Auth::guard('web')->logout();
+        Auth::guard($type)->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function select($type)
+    {
+        return view('auth.login', compact('type'));
     }
 }
