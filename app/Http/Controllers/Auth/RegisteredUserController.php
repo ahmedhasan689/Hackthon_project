@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
 use App\Models\User;
+use App\Models\City;
+use App\Models\Category;
+use App\Models\Customer;
+use App\Models\Delivery;
 
 class RegisteredUserController extends Controller
 {
@@ -34,33 +38,80 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required'],
             'phone_number' => ['required', 'numeric', 'min:10'],
             'age' => ['required', 'numeric'],
-            'job' => ['required', 'string'],
-            // 'product_name' => ['required', 'string'],
         ]);
 
+        // dd($request);
+        if ($request->type == 'user') {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phone_number' => $request->phone_number,
+                'age' => $request->age,
+                'job' => $request->job,
+                'project_name' => $request->project_name,
+                'city_id' => $request->city,
+                'category_id' => $request->category,
+            ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'phone_number' => $request->phone_number,
-            'age' => $request->age,
-            'job' => $request->job,
-            'product_name' => 'Nice Food',
-            'gender' => $request->gender,
-            'city_id' => 1,
-        ]);
+            event(new Registered($user));
 
-        event(new Registered($user));
+            Auth::login($user);
 
-        Auth::login($user);
+            return redirect(RouteServiceProvider::HOME);
 
-        return redirect(RouteServiceProvider::HOME);
+        } elseif ($request->type == 'customer') {
+            $customer = Customer::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phone_number' => $request->phone_number,
+                'age' => $request->age,
+                'city_id' => $request->city,
+                'address' => $request->address,
+            ]);
+
+            event(new Registered($customer));
+
+            Auth::login($customer);
+
+            return redirect(RouteServiceProvider::HOME);
+
+        } elseif ($request->type == 'delivery') {
+            $delivery = Delivery::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phone_number' => $request->phone_number,
+                'age' => $request->age,
+                'city_id' => $request->city,
+            ]);
+
+            event(new Registered($delivery));
+
+            Auth::login($delivery);
+
+            return redirect(RouteServiceProvider::HOME);
+        }
+
+        // event(new Registered($user));
+
+        // Auth::login($user);
+
+        // return redirect(RouteServiceProvider::HOME);
+    }
+
+    public function select($type)
+    {
+        $cities = City::all();
+        $categories = Category::all();
+        return view('auth.register', compact('type', 'cities', 'categories'));
     }
 }

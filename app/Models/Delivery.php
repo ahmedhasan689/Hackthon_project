@@ -19,8 +19,13 @@ class Delivery extends Authenticatable
         'password',
         'phone_number',
         'avatar',
-        'city',
+        'city_id',
         'age',
     ];
+
+    // Relation
+    public function city() {
+        return $this->belongsTo(User::class, 'city_id');
+    }
 
 }

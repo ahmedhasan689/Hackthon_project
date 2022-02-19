@@ -2,10 +2,11 @@
 
 @section('page_title', 'الرئيسية')
 
-@extends('layouts.navbar')
-
 @section ('content')
-
+    
+    <!-- Navbar Component -->
+    <x-navbar />
+    
     @auth
     <h1>
         Ahmed

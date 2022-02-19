@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-lg navbar-light ">
+<nav class="navbar navbar-expand-lg navbar-light ">
         <div class="cont">
             <a class="navbar-brand" href="#">طلبات</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
 
                 @auth
                 <h1>
-                    welcome {{ auth()->user()->name }}
+                    welcome {{ Auth::user()->name }}
                 </h1>
                 @endauth
 

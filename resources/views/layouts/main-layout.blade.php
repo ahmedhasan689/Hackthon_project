@@ -40,7 +40,7 @@
                             </div> <br>
 
                             <button style="background-color: transparent; border: solid 1px #24c2a0; padding: 0 10px; ">
-                                <a href="sign.html" style="text-decoration: none; color: black; font-size: x-large;">
+                                <a href="{{ route('register.select', 'user') }}" style="text-decoration: none; color: black; font-size: x-large;">
                                     بائع
                                 </a>
                             </button>
@@ -51,7 +51,7 @@
                                 <img style="width: 100%;" src="{{ asset('Front/img/1224503.png') }}" alt="">
                             </div> <br>
                             <button style="background-color: transparent; border: solid 1px #24c2a0; padding: 0 10px; ">
-                                <a href="sign.html" style="text-decoration: none; color: black; font-size: x-large;">
+                                <a href="{{ route('register.select', 'customer') }}" style="text-decoration: none; color: black; font-size: x-large;">
                                     مشتري
                                 </a>
                             </button>
@@ -62,7 +62,7 @@
                                 <img style="width: 100%;" src="{{ asset('Front/img/1254735.png') }}" alt="">
                             </div> <br>
                             <button style="background-color: transparent; border: solid 1px #24c2a0; padding: 0 10px; ">
-                                <a style="text-decoration: none; color: black; font-size: x-large;" href="sign.html">
+                                <a href="{{ route('register.select', 'delivery') }}" style="text-decoration: none; color: black; font-size: x-large;">
                                     ديليفري
                                 </a>
                             </button>

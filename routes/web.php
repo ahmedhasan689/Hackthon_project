@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Home Page Route 
-Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/', [HomeController::class, 'home'])->middleware(['guest'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

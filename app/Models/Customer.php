@@ -19,9 +19,14 @@ class Customer extends Authenticatable
         'phone_number',
         'password',
         'avatar',
-        'city',
+        'city_id',
         'address',
         'gender',
         'age',
     ];
+    
+    // Relation
+    public function city() {
+        return $this->belongsTo(User::class, 'city_id');
+    }
 }

@@ -28,6 +28,7 @@ class User extends Authenticatable
         'project_name',
         'gender',
         'age',
+        'category_id'
     ];
 
     /**
@@ -48,4 +49,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Relation
+    public function city() {
+        return $this->belongsTo(User::class, 'city_id');
+    }
+
+    public function category() {
+        return $this->belongsTo(User::class, 'category_id');
+    }
+
+    public function products() {
+        return $this->hasMany(Product::class);
+    }
 }
