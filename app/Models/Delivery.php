@@ -28,4 +28,8 @@ class Delivery extends Authenticatable
         return $this->belongsTo(User::class, 'city_id');
     }
 
+    public function profile() {
+        return $this->hasOne(Profile::class);
+    }
+
 }

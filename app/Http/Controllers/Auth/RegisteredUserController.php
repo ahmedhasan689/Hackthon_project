@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-
-use App\Models\User;
 use App\Models\City;
+use App\Models\User;
+use App\Models\Profile;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Delivery;
+use Illuminate\Http\Request;
+
+use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class RegisteredUserController extends Controller
 {
@@ -61,6 +62,10 @@ class RegisteredUserController extends Controller
                 'category_id' => $request->category,
             ]);
 
+            $profile = Profile::with('user')->create([
+                'user_id' => $user->max('id'),
+            ]);
+
             event(new Registered($user));
 
             Auth::login($user);
@@ -78,6 +83,10 @@ class RegisteredUserController extends Controller
                 'address' => $request->address,
             ]);
 
+            $profile = Profile::with('customer')->create([
+                'customer_id' => $customer->max('id'),
+            ]);
+
             event(new Registered($customer));
 
             Auth::login($customer);
@@ -92,6 +101,10 @@ class RegisteredUserController extends Controller
                 'phone_number' => $request->phone_number,
                 'age' => $request->age,
                 'city_id' => $request->city,
+            ]);
+
+            $profile = Profile::with('delivery')->create([
+                'delivery_id' => $delivery->max('id'),
             ]);
 
             event(new Registered($delivery));

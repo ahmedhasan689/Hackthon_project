@@ -24,9 +24,13 @@ class Customer extends Authenticatable
         'gender',
         'age',
     ];
-    
+
     // Relation
     public function city() {
         return $this->belongsTo(User::class, 'city_id');
+    }
+
+    public function profile() {
+        return $this->hasOne(Profile::class);
     }
 }

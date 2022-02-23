@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +20,36 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Home Page Route 
-Route::get('/', [HomeController::class, 'home'])->middleware(['guest'])->name('home');
+// Home Page Route
+Route::get('/', [HomeController::class, 'home'])->name('home');
+// Route::get('/home', [HomeController::class, 'redirect'])->middleware(['auth:web,customer,delivery'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
+
+// Cart Controller
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('/cart', [CartController::class, 'store']);
+
+
+Route::namespace('/Front')
+    ->middleware(['auth:web,customer,delivery'])
+    ->group(function () {
+
+        // Start Profile Route [ ProfileController ]
+        Route::group([
+            'prefix' => 'profile',
+            'as' => 'profile.'
+        ], function () {
+            Route::get('/', [ProfileController::class, 'index'])->name('index');
+            Route::get('/create', [ProfileController::class, 'create'])->name('create');
+            Route::post('/', [ProfileController::class, 'store'])->name('store');
+            Route::get('/{id}/edit', [ProfileController::class, 'edit'])->name('edit');
+            Route::put('/{id}', [ProfileController::class, 'update'])->name('update');
+            Route::delete('/{id}', [ProfileController::class, 'destroy'])->name('delete');
+        });
+        // End Profile Route [ ProfileController ]
+    });
