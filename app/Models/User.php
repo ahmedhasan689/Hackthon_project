@@ -66,4 +66,18 @@ class User extends Authenticatable
     public function profile() {
         return $this->hasOne(Profile::class);
     }
+
+    // Accessors For Image_Path
+    public function getImageAttribute()
+    {
+        if (!$this->avatar){
+            return asset('Front/img/no-image.png');
+        }
+
+        if (stripos($this->avatar, 'http') === 0) {
+            return $this->avatar;
+        }
+
+        return asset('uploads/' . $this->avatar);
+    }
 }

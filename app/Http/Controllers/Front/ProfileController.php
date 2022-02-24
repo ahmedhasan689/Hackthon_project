@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
+use App\Models\Delivery;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -121,6 +123,48 @@ class ProfileController extends Controller
                 'name' => $request->name,
                 'phone_number' => $request->phone_number,
                 'project_name' => $request->project_name,
+                'avatar' => $avatar_path,
+                'password' => $password_input,
+            ]);
+        } elseif (session('guardName') == 'customer') {
+            $customer = Customer::findOrFail($id);
+
+            // dd($request);
+            $password_input = null;
+
+            if ($request->post('password')) {
+                if (Hash::check($request->password, Auth::user()->password) && $request->post('new-password') ==  $request->post('re-password')) {
+                    $password_input =  Hash::make($request->post('new-password'));
+                }
+            } else {
+                $password_input = $customer->password;
+            }
+
+            // dd($request);
+            $customer->update([
+                'name' => $request->name,
+                'phone_number' => $request->phone_number,
+                'avatar' => $avatar_path,
+                'password' => $password_input,
+            ]);
+        }elseif (session('guardName') == 'delivery') {
+            $delivery = Delivery::findOrFail($id);
+
+            // dd($request);
+            $password_input = null;
+
+            if ($request->post('password')) {
+                if (Hash::check($request->password, Auth::user()->password) && $request->post('new-password') ==  $request->post('re-password')) {
+                    $password_input =  Hash::make($request->post('new-password'));
+                }
+            } else {
+                $password_input = $delivery->password;
+            }
+
+            // dd($request);
+            $delivery->update([
+                'name' => $request->name,
+                'phone_number' => $request->phone_number,
                 'avatar' => $avatar_path,
                 'password' => $password_input,
             ]);

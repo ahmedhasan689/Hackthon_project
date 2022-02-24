@@ -1,24 +1,24 @@
-<?php 
+<?php
 
 namespace App\Repositories\Cart;
 
 use Illuminate\Support\Facades\Session;
 
-class SessionRepository implements CartRepository 
+class SessionRepository implements CartRepository
 {
 
     protected $key = 'cart';
 
     public function all()
-    {   
+    {
         return Session::get($this->key);
     }
 
-    public function add($item)
+    public function add($item, $qty = 1)
     {
-        /* 
+        /*
           =>  Use "Push" To Add Array Of Items
-          =>  Use "Put" To Add One Item 
+          =>  Use "Put" To Add One Item
         */
         Session::push($this->key, $item);
     }

@@ -16,16 +16,12 @@ class CartController extends Controller
 
     public function __construct(CartRepository $cart)
     {
-        $this->cart = $cart;    
+        $this->cart = $cart;
     }
 
     public function index(CartRepository $cart)
     {
-        $this->cart->add([
-            'id' => 1,
-            'name' => 'Pizza',
-            'price' => 100,
-        ]);
+        $this->cart->add(Product::find(1), 2);
 
         return $this->cart->all();
     }

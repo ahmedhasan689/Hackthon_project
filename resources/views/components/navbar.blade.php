@@ -35,7 +35,7 @@
                     <div class="dropdown">
                         <div class="profile" class=" dropdown-toggle" type="button" id="dropdownMenu2"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ asset('uploads') . '/' . Auth::user()->avatar }}" alt="">
+                            <img src="{{  Auth::guard(session('guardName'))->user()->image }}" alt="">
                         </div>
 
                         <ul class="dropdown-menu mt-2" aria-labelledby="dropdownMenu2" style="margin-left: -50px;">

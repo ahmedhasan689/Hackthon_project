@@ -32,7 +32,7 @@
                 <div class="dropdown">
                     <div class="profile" class=" dropdown-toggle" type="button" id="dropdownMenu2"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ asset('uploads') . '/' . Auth::user()->avatar }}" alt="" style="width: 40px;
+                        <img src="{{ Auth::guard(session('guardName'))->user()->image }}" alt="" style="width: 40px;
                         height: 40px;
                         border-radius: 50%;
                         overflow: hidden;
