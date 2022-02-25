@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\Front\ProductsController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ProfileController;
 
@@ -32,7 +33,7 @@ require __DIR__ . '/auth.php';
 
 // Cart Controller
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
-Route::post('/cart', [CartController::class, 'store']);
+Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 
 
 Route::namespace('/Front')
@@ -52,4 +53,18 @@ Route::namespace('/Front')
             Route::delete('/{id}', [ProfileController::class, 'destroy'])->name('delete');
         });
         // End Profile Route [ ProfileController ]
+
+        // Start Product Route [ Product Controller ]
+        Route::group([
+            'prefix' => 'product',
+            'as' => 'product.'
+        ], function () {
+            Route::get('/', [ProductsController::class, 'index'])->name('index');
+            Route::get('/create', [ProductsController::class, 'create'])->name('create');
+            Route::post('/', [ProductsController::class, 'store'])->name('store');
+            Route::get('/{id}', [ProductsController::class, 'show'])->name('show');
+            Route::get('/{id}/edit', [ProductsController::class, 'edit'])->name('edit');
+            Route::put('/{id}', [ProductsController::class, 'update'])->name('update');
+            Route::delete('/{id}', [ProductsController::class, 'destroy'])->name('delete');
+        });
     });

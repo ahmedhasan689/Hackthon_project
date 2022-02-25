@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
-use App\Repositories\Cart\CartRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use App\Repositories\Cart\CartRepository;
 
 class CartController extends Controller
 {
@@ -21,8 +22,29 @@ class CartController extends Controller
 
     public function index(CartRepository $cart)
     {
-        $this->cart->add(Product::find(1), 2);
+        $cart = $this->cart->all();
 
-        return $this->cart->all();
+        return view('cart', [
+            'cart' => $cart,
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'product_id' => ['required', 'exists:products,id'],
+            'quantity' => ['int', 'min:1',
+                function($attr, $value, $fail) {
+                $id = request()->input('product_id');
+                $product = Product::find($id);
+                if($value > $product->quantity) {
+                    $fail('الرقم أكبر من المتوفر');
+                }
+            }],
+        ]);
+
+        $cart = $this->cart->add($request->post('product_id'), $request->post('quantity', 1));
+
+        return redirect()->back();
     }
 }

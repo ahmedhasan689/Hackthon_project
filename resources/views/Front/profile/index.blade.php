@@ -24,7 +24,7 @@
 
                 <div class="addRoad">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <a href="addProduct.html">
+                        <a href="{{ route('product.create') }}">
                             اضافة منتج
                         </a>
                     </button>

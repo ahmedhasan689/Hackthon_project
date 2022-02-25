@@ -14,12 +14,14 @@ class Product extends Model
         'name',
         'price',
         'quantity',
-        'image',
+        'cover_image',
         'available',
-        'categroy_id',
+        'category_id',
+        'description',
+        'offer'
     ];
 
-    // Relation 
+    // Relation
     public function user() {
         return $this->belongsTo(User::class);
     }
@@ -27,4 +29,19 @@ class Product extends Model
     public function category() {
         return $this->belongsTo(Category::class);
     }
+
+    // Accessors For Cover_image
+    public function getCoverAttribute()
+    {
+        if (!$this->cover_image){
+            return asset('Front/img/cover.jpg');
+        }
+
+        if (stripos($this->cover_image, 'http') === 0) {
+            return $this->cover_image;
+        }
+
+        return asset('cover/' . $this->cover_image);
+    }
+
 }

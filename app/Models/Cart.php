@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cart extends Model
 {
@@ -25,10 +26,18 @@ class Cart extends Model
         'product',
     ];
 
-    // Relation
+    // Relations
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    // Events
+    protected static function booted()
+    {
+        static::creating(function (Cart $cart){
+            $cart->id = Str::uuid();
+        });
     }
 
 }

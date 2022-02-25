@@ -60,6 +60,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'cover' => [
+            'driver' => 'local',
+            'root' => public_path('cover'),
+            'url' => env('APP_URL').'/cover',
+            'visibility' => 'public',
+        ],
+
     ],
 
     /*
