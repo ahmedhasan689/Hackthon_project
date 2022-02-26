@@ -59,7 +59,9 @@
         </div>
         <div class="check text-center">
             <button>
-                اقبل
+                <a href="{{ route('checkout') }}" style="color:#FFF; text-decoration:none">
+                    اقبل
+                </a>
             </button>
         </div>
 

@@ -22,13 +22,13 @@ class DatabaseRepository implements CartRepository
     public function all()
     {
         if ($this->items->count() == 0) {
-            $this->items = Cart::where('cookie_id', $this->getCookieId())->orWhere('customer_id', Auth::guard(session('guardName'))->user()->id)
+            $this->items = Cart::Where('customer_id', Auth::guard(session('guardName'))->user()->id )
             ->get();
         }
         return $this->items;
     }
 
-    public function add($item, $qty = 1)
+    public function add($item, $qty = 0)
     {
         /* $cart = Cart::where([
             'cookie_id' => $this->getCookieId(),

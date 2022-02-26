@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\Front\ProductsController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ProfileController;
+use App\Http\Controllers\Front\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,4 +70,16 @@ Route::namespace('/Front')
             Route::put('/{id}', [ProductsController::class, 'update'])->name('update');
             Route::delete('/{id}', [ProductsController::class, 'destroy'])->name('delete');
         });
+        // End Product Route [ Product Controller ]
+
+        // Orders
+        Route::get('/orders', function() {
+            return Order::all();
+        })->name('orders');
+        // End Orders
+
+        // Start Checkout Route
+        Route::get('/checkout', [CheckoutController::class, 'create'])->name('checkout');
+        Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+        // End Checkout Route
     });

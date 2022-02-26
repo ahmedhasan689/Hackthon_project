@@ -8,8 +8,7 @@ body {
 }
 
 .header {
-    background-image: linear-gradient(to right, #15eaa0, #198770
-    );
+    background-image: linear-gradient(to right, #15eaa0, #198770);
     height: 100vh;
     width: 100%;
     background-size: cover;
@@ -422,8 +421,7 @@ footer ul li a:hover {
 
 .sign .rightLogin,
 .login .rightLogin {
-    background-image: linear-gradient(to right, #15eaa0, #198770
-    );
+    background-image: linear-gradient(to right, #15eaa0, #198770);
     height: 100%;
     text-align: center;
     position: relative;
@@ -435,10 +433,12 @@ footer ul li a:hover {
 }
 
 @media(max-width:992px) {
+
     .sign .rightLogin,
     .login .rightLogin {
         height: 50%;
     }
+
     .sign .rightLogin .cont,
     .login .rightLogin .cont {
         margin-top: 100px;
@@ -468,6 +468,7 @@ footer ul li a:hover {
 }
 
 @media(max-width:992px) {
+
     .sign .rightLogin button,
     .login .rightLogin button {
         margin-top: 5%;
@@ -487,6 +488,7 @@ footer ul li a:hover {
 }
 
 @media(max-width:992px) {
+
     .login form,
     .sign form {
         width: 90%;
@@ -500,8 +502,7 @@ footer ul li a:hover {
 
 .sign form h2,
 .login form h2 {
-    color: #198770
-    ;
+    color: #198770;
     padding-bottom: 20px;
 }
 
@@ -541,8 +542,7 @@ footer ul li a:hover {
 
 .sign form button,
 .login form button {
-    background-color: #198770
-    ;
+    background-color: #198770;
     border: none;
     margin-top: 20px;
 }
@@ -812,11 +812,13 @@ footer ul li a:hover {
     width: 60%;
     margin: 50px auto 0 auto;
 }
+
 @media (max-width:768px) {
     .addWork .add {
         width: 90%;
     }
 }
+
 @media(max-width:768px) {
     .addWork .add {
         width: 90%;
@@ -828,13 +830,14 @@ footer ul li a:hover {
         width: 70%;
     }
 }
-.addWork h4{
+
+.addWork h4 {
     color: #005945;
 }
+
 .addWork .add form {
     /* background-color: #24c2a0; */
-    background-image: linear-gradient(to right, #15eaa0, #198770
-    );
+    background-image: linear-gradient(to right, #15eaa0, #198770);
     border-radius: 10px;
     padding: 20px;
 }
@@ -882,13 +885,15 @@ footer ul li a:hover {
 .addWork .add .download a {
     text-decoration: none;
 }
-.addWork .add button{
+
+.addWork .add button {
     padding: 5px 10px;
     background-color: #0c2520;
 }
+
 .addWork .add button a {
     text-decoration: none;
-    color:#ffffff;
+    color: #ffffff;
     font-size: larger;
     font-weight: bold;
 }
@@ -932,7 +937,7 @@ footer ul li a:hover {
     right: 12%;
 }
 
-.profile .head .edit h5{
+.profile .head .edit h5 {
 
 
 
@@ -941,25 +946,28 @@ footer ul li a:hover {
 }
 
 
-.profile .nav{
+.profile .nav {
     width: 80%;
     margin: 0 auto;
 }
-.profile .nav .product{
-    background-color: #198770
-    ;
+
+.profile .nav .product {
+    background-color: #198770;
     color: #fff;
     font-size: large;
 }
-.profile .nav .control{
+
+.profile .nav .control {
 
     color: #000;
     font-size: large;
 }
-.test .three{
+
+.test .three {
     width: 80%;
     margin: 0 auto;
 }
+
 .profile .head .addRoad {
     position: relative;
     top: 110%;
@@ -967,17 +975,18 @@ footer ul li a:hover {
 }
 
 .profile .head .addRoad button {
-    background-color: #198770
-    ;
+    background-color: #198770;
     border: none;
     color: #fff;
     padding: 10px;
     border-radius: 3px;
 }
-.profile .head .addRoad button a{
+
+.profile .head .addRoad button a {
     color: #fff;
     text-decoration: none;
 }
+
 @media (max-width:992px) {
     .profile .head .addRoad {
         right: 40%;
@@ -1047,7 +1056,7 @@ footer ul li a:hover {
 }
 
 .contentProfile .more button {
-    background-color: #198770    ;
+    background-color: #198770;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
@@ -1065,73 +1074,84 @@ footer ul li a:hover {
 .contentProfile .more .img .like {
     height: 30px;
 }
+
 .profile .controlProfile {
     width: 70%;
     margin: 0 auto;
 }
+
 @media(max-width:768px) {
     .profile .controlProfile {
         width: 100%;
         margin: 0 auto;
     }
 }
-.profile .controlProfile table .title td{
+
+.profile .controlProfile table .title td {
     font-weight: bold;
 }
+
 .profile .controlProfile table tr {
     border-bottom: solid 1px #8b8989;
 }
-.profile .controlProfile table tr td{
+
+.profile .controlProfile table tr td {
     padding: 10px 20px;
     font-size: large;
 }
-.profile .controlProfile table tr td .image{
+
+.profile .controlProfile table tr td .image {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
 }
-.profile .controlProfile table tr td .image img{
+
+.profile .controlProfile table tr td .image img {
     position: absolute;
     width: 100%;
     top: 50%;
     left: 50%;
-    transform: translate(-50% , -50%);
+    transform: translate(-50%, -50%);
 }
 
-.profile .controlProfile table tr td input{
+.profile .controlProfile table tr td input {
     width: 20px;
     border: none;
 }
-.profile .controlProfile table tr td input:focus{
+
+.profile .controlProfile table tr td input:focus {
     border: none;
     outline: none;
 }
-.profile .controlProfile table .fa-pen{
+
+.profile .controlProfile table .fa-pen {
     font-size: small;
 }
-.profile .controlProfile table .delete{
+
+.profile .controlProfile table .delete {
     background-color: #e60026;
     border: none;
     color: #fff;
     font-size: medium;
-    padding:0px 5px ;
+    padding: 0px 5px;
     border-radius: 2px;
 }
-.profile .controlProfile table .save{
+
+.profile .controlProfile table .save {
     border: none;
     color: #fff;
     font-size: medium;
-    padding:0px 10px ;
+    padding: 0px 10px;
     border-radius: 2px;
     background-color: #8b8989;
 }
 
 
- /* edit profile */
+/* edit profile */
 
- .editProfile {
+.editProfile {
     width: 60%;
     margin: 0 auto;
     /* background-color: #d9d9d9; */
@@ -1209,9 +1229,11 @@ footer ul li a:hover {
     width: 75%;
     margin: 0 auto;
 }
-.editProfile form label{
+
+.editProfile form label {
     color: #0c2520;
 }
+
 /* .editProfile form button{
     background-color: #0c2520;
 } */
@@ -1235,63 +1257,74 @@ footer ul li a:hover {
 }
 
 /* cart */
-.cart{
+.cart {
     width: 80%;
     margin: 50px auto 0 auto;
 }
-.cart h2{
+
+.cart h2 {
     color: #0c2520;
 }
-.cart .row{
+
+.cart .row {
     background-image: linear-gradient(to right, #15eaa0, #198770);
     padding: 50px;
     border-radius: 10px;
 }
 
-.cart .table th{
+.cart .table th {
     text-align: center;
     font-size: large;
     color: #0c2520;
 }
-.cart .table td{
+
+.cart .table td {
     text-align: center;
 }
-.cart .table td input{
+
+.cart .table td input {
     background-color: transparent;
 }
-.cart .table .all{
+
+.cart .table .all {
     display: flex;
     align-items: center;
 }
-.cart .table .all h5{
+
+.cart .table .all h5 {
     margin-right: 5px;
 }
-.cart .table .image{
+
+.cart .table .image {
     width: 50px;
-    height:50px;
+    height: 50px;
     overflow: hidden;
     border-radius: 5px;
     position: relative;
 }
-.cart .table .image img{
+
+.cart .table .image img {
     position: absolute;
     width: 100%;
     top: 50%;
     left: 50%;
-    transform: translate(-50% , -50%);
+    transform: translate(-50%, -50%);
 }
 
-.cart .review{
+.cart .review {
     /* background-color:#8b8989 ; */
     padding: 10px;
 }
-.cart .review h5{
+
+.cart .review h5 {
     text-align: right;
 }
-.cart .review .priceAll{
+
+.cart .review .priceAll {
     margin-right: 5px;
 }
-.check button{
+
+.check button {
     padding: 12px 22px;
     margin-right: -5px;
     background-color: #198770;
@@ -1301,17 +1334,126 @@ footer ul li a:hover {
 }
 
 
+.ps-checkout__order {
+    margin-bottom: 30px;
+    background-color: #000000;
+}
 
+.ps-checkout__order h3 {
+    margin-bottom: 0;
+    font-family: "Archivo Narrow", sans-serif;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #ffffff;
+    text-transform: uppercase;
+}
 
+.ps-checkout__order .ps-radio label {
+    color: #fff;
+}
 
+.ps-checkout__order>header {
+    margin-bottom: 10px;
+    padding: 20px 30px;
+    border-bottom: 1px solid #4d4d4d;
+}
 
+.ps-checkout__order .content {
+    padding: 0 30px 20px;
+}
 
+.ps-checkout__order>footer>h3 {
+    padding: 10px 30px;
+}
 
+.ps-checkout__order>footer .cheque {
+    padding: 20px 30px;
+    border-top: 1px solid #4d4d4d;
+    border-bottom: 1px solid #4d4d4d;
+}
 
+.ps-checkout__order>footer .cheque p {
+    color: #fff;
+    font-size: 12px;
+}
 
+.ps-checkout__order>footer .paypal {
+    padding: 10px 30px;
+}
 
+.ps-checkout__order>footer .paypal .ps-btn {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
 
+.ps-payment-method {
+    display: inline-block;
+}
 
+.ps-payment-method li {
+    display: inline-block;
+    margin-right: 5px;
+    background-color: #fff;
+}
 
+.ps-payment-method li img {
+    max-width: 50px;
+}
 
+.ps-btn, button.ps-btn {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    font-family: "Archivo Narrow", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #fff;
+    background-color: #2AC37D;
+    line-height: 25px;
+    border: none;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    -ms-border-radius: 60px;
+    border-radius: 60px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
 
+.ps-btn i, button.ps-btn i {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.ps-btn:before, button.ps-btn:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    background-color: rgba(0, 0, 0, 0.07);
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    -ms-border-radius: 60px;
+    border-radius: 60px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.ps-btn:hover, button.ps-btn:hover {
+    background-color: #50CF96;
+    color: #fff;
+}
+
+.ps-btn:hover:before, button.ps-btn:hover:before {
+    background-color: rgba(0, 0, 0, 0.1);
+}
