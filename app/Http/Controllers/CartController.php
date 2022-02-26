@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use App\Repositories\Cart\CartRepository;
 
 class CartController extends Controller
@@ -22,10 +23,11 @@ class CartController extends Controller
 
     public function index(CartRepository $cart)
     {
-        $cart = $this->cart->all();
+        $carts = Cart::where('customer_id', Auth::guard( session('guardName') )->user()->id)->get();
 
-        return view('cart', [
-            'cart' => $cart,
+        return view('Front.cart.cart', [
+            'carts' => $carts,
+            'total' => $this->cart->total(),
         ]);
     }
 
@@ -45,6 +47,6 @@ class CartController extends Controller
 
         $cart = $this->cart->add($request->post('product_id'), $request->post('quantity', 1));
 
-        return redirect()->back();
+        return redirect()->route('cart');
     }
 }

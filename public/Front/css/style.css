@@ -657,25 +657,25 @@ footer ul li a:hover {
     /* display: flex;
     flex-direction: row;
     align-items: center; */
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .cuantity .cont {
     border: solid 1px #8b8989;
     display: inline-block;
+
+
 }
 
-.cuantity h6 {
-    font-size: 20px;
-}
+
 
 .cuantity input {
     width: 50px;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
-    background-color: #24c2a0;
-    color: #fff;
-    padding: 10px 0px;
+    /* background-color: #24c2a0; */
+    color: rgb(0, 0, 0);
+    padding: 5px 0px;
     border: none;
 }
 
@@ -686,7 +686,7 @@ footer ul li a:hover {
 }
 
 .cuantity span {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bolder;
     padding: 0 10px;
     cursor: pointer;
@@ -1234,6 +1234,71 @@ footer ul li a:hover {
     display: none;
 }
 
+/* cart */
+.cart{
+    width: 80%;
+    margin: 50px auto 0 auto;
+}
+.cart h2{
+    color: #0c2520;
+}
+.cart .row{
+    background-image: linear-gradient(to right, #15eaa0, #198770);
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.cart .table th{
+    text-align: center;
+    font-size: large;
+    color: #0c2520;
+}
+.cart .table td{
+    text-align: center;
+}
+.cart .table td input{
+    background-color: transparent;
+}
+.cart .table .all{
+    display: flex;
+    align-items: center;
+}
+.cart .table .all h5{
+    margin-right: 5px;
+}
+.cart .table .image{
+    width: 50px;
+    height:50px;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+}
+.cart .table .image img{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+
+.cart .review{
+    /* background-color:#8b8989 ; */
+    padding: 10px;
+}
+.cart .review h5{
+    text-align: right;
+}
+.cart .review .priceAll{
+    margin-right: 5px;
+}
+.check button{
+    padding: 12px 22px;
+    margin-right: -5px;
+    background-color: #198770;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
 
 
 

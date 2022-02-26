@@ -1,3 +1,8 @@
+{{--
+<head>
+    <link rel="stylesheet" href="{{ asset('Front/css/style.css') }}">
+</head>
+--}}
 
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="cont">
@@ -51,7 +56,7 @@
 
                         <li class="text-center">
                             <button class="dropdown-item" type="button">
-                                <a href="{{ route('profile.edit', Auth::user()->id) }}">
+                                <a href="{{ route('profile.edit', Auth::guard(session('guardName'))->user()->id) }}">
                                     تعديل البروفايل
                                 </a>
                             </button>

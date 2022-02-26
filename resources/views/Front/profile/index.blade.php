@@ -22,13 +22,25 @@
                     <p>{{ Auth::user()->name }}</p>
                 </div>
 
+                @if (session('guardName') == 'web')
+                    <div class="addRoad">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            <a href="{{ route('product.create') }}">
+                                اضافة منتج
+                            </a>
+                        </button>
+                    </div>
+                @elseif (session('guardName') == 'customer')
                 <div class="addRoad">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <a href="{{ route('product.create') }}">
-                            اضافة منتج
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        <a href="{{ route('cart') }}">
+                            السلة الشرائية
                         </a>
                     </button>
                 </div>
+                @endif
             </div>
 
             <br> <br> <br> <br> <br>

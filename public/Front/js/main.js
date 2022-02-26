@@ -12,19 +12,19 @@ function decreaseValue() {
     document.getElementById('number').value = value;
 }
 
-$(document).ready(function() {
-    $('.like').click(function() {
+$(document).ready(function () {
+    $('.like').click(function () {
         $(this).toggleClass('clicked');
 
     });
-    $(".card").click(function() {
+    $(".card").click(function () {
 
         $(this).stop();
 
     });
 });
-$(document).ready(function() {
-    $(".product").click(function() {
+$(document).ready(function () {
+    $(".product").click(function () {
         // $(".artWork").hide();
         $(".product").css("backgroundColor", "#198770");
         $(".product").css("color", "#fff");
@@ -37,8 +37,8 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function() {
-    $(".control").click(function() {
+$(document).ready(function () {
+    $(".control").click(function () {
         // $(".artWork").hide();
         $(".control").css("backgroundColor", "#198770");
         $(".control").css("color", "#fff");
@@ -51,8 +51,8 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function() {
-    $(".change").click(function() {
+$(document).ready(function () {
+    $(".change").click(function () {
         $(".form").toggle();
 
 

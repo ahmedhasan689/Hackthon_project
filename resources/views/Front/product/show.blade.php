@@ -35,9 +35,10 @@
 
                     <div class="cuantity">
                         <h6>الكمية ( {{ $product->quantity }} )</h6>
+                        <input type="hidden" name="" id="quantity" value="{{ $product->quantity }}">
                         <div class="cont">
                             <span class="up" onclick="incrementValue()">+</span>
-                            <input type="text" id="number" name="quantity">
+                            <input type="text" id="number" name="quantity" value="0">
                             <span class="down" onclick="decreaseValue()">-</span>
                         </div>
                     </div>

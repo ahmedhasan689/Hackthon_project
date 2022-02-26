@@ -12,12 +12,20 @@ use Illuminate\Support\Facades\Cookie;
 class DatabaseRepository implements CartRepository
 {
 
+    protected $items;
 
+    public function __construct()
+    {
+        $this->items = collect([]);
+    }
 
     public function all()
     {
-        return Cart::where('cookie_id', $this->getCookieId())->orWhere('customer_id', Auth::guard(session('guardName'))->user()->id)
+        if ($this->items->count() == 0) {
+            $this->items = Cart::where('cookie_id', $this->getCookieId())->orWhere('customer_id', Auth::guard(session('guardName'))->user()->id)
             ->get();
+        }
+        return $this->items;
     }
 
     public function add($item, $qty = 1)
@@ -40,7 +48,7 @@ class DatabaseRepository implements CartRepository
             ]);
         }; */
 
-        return Cart::updateOrCreate([
+        $cart = Cart::updateOrCreate([
             'cookie_id' => $this->getCookieId(),
             'product_id' => ($item instanceof Product) ? $item->id : $item,
         ], [
@@ -48,6 +56,10 @@ class DatabaseRepository implements CartRepository
             'customer_id' => Auth::guard(session('guardName'))->user()->id,
             'quantity' => DB::raw('quantity +' . $qty),
         ]);
+
+        $this->items->push($cart);
+
+        return $cart;
     }
 
     public function clear()
@@ -66,5 +78,13 @@ class DatabaseRepository implements CartRepository
         }
 
         return $id;
+    }
+
+    public function total()
+    {
+        $items = $this->all();
+        return $items->sum(function ($item) {
+            return $item->quantity * $item->product->price;
+        });
     }
 }

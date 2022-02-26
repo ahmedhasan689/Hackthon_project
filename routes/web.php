@@ -36,6 +36,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 
 
+
 Route::namespace('/Front')
     ->middleware(['auth:web,customer,delivery'])
     ->group(function () {
